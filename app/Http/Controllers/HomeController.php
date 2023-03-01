@@ -21,6 +21,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+   public function indexs()
+    {
+        return view('dashboard.dashlogin');
+    }
+
     public function index()
     {
         return view('dashboard.db_index');

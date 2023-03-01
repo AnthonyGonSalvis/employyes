@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('send-mail', [MailController::class, 'index']);
+
+Route::get('stripe', [StripeController::class, 'index']);
+Route::post('stripe/create-charge', [StripeController::class, 'createCharge'])->name('stripe.create-charge');
+
+
+// Route::get('/', function () {
+//     return view('login');
+// });
+
+Route::post('/create',[App\Http\Controllers\EditorController::class,'index']);
 
 // Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-Route::get('/indexhome', [App\Http\Controllers\IndexController::class, 'index']);
+Route::get('/', [App\Http\Controllers\IndexController::class,'index']);
+Route::get('/read', [App\Http\Controllers\IndexController::class,'service']);
+Route::get('/readmore', [App\Http\Controllers\IndexController::class,'about']);
+Route::get('/link', [App\Http\Controllers\IndexController::class,'link']);
+Route::get('/blog', [App\Http\Controllers\IndexController::class,'blog']);
+// Route::get('/indexhome', [App\Http\Controllers\IndexController::class, 'index']);
 
+Route::post('/contact', [App\Http\Controllers\IndexController::class, 'contact'])->name('contact');
+
+//auth routes
+Route::group(['middleware' => 'prevent-back-history'],function(){
+	
+Auth::routes();
+Route::get('/admin', [App\Http\Controllers\HomeController::class,'index']);
+
+//Route::get('/admins', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+
+});
 // CRUD ROUTES
 Route::Resource('/employees',App\Http\Controllers\EmployeesController::class);
 Route::Resource('/about',App\Http\Controllers\AboutController::class);
@@ -31,12 +57,8 @@ Route::Resource('/counter',App\Http\Controllers\CounterController::class);
 Route::Resource('/values',App\Http\Controllers\ValuesController::class);
 Route::Resource('/clients',App\Http\Controllers\ClientsController::class);
 Route::Resource('/contacts',App\Http\Controllers\ContactController::class);
-
-Route::post('/contact', [App\Http\Controllers\IndexController::class, 'contact'])->name('contact');
-//auth routes
-Auth::routes();
-
-Route::get('/admin', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+Route::Resource('/faq',App\Http\Controllers\FaqController::class);
+// Route::Resource('/teams',App\Http\Controllers\ContactController::class);
 
 
 

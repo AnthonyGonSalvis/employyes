@@ -45,8 +45,8 @@ class AboutController extends Controller
                'image' =>'required',
                'heading' =>'required|max:100',
                'description' =>'required|max:200',
-               'button_text' =>'required|max:20',
-               'button_link' =>'required|max:30',
+               // 'button_text' =>'required|max:20',
+               // 'button_link' =>'required|max:30',
             ]);
 
          

@@ -74,7 +74,6 @@
       behavior: 'smooth'
     })
   }
-
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */

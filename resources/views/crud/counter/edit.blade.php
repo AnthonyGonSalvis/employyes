@@ -1,4 +1,4 @@
-@extends('dblayout.main')
+@extends('dblayout.dbheader')
 @section('content')
  <div class="app-wrapper">   
 	<div class="app-content pt-3 p-md-3 p-lg-4">
@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm-2">
                 <!-- <button type="button" class="btn btn-success" style="color:white;"><a href="{{route('employees.index')}}">Back</a></button> -->
-                 <a href="{{route('counter.index')}}" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#myModal">Back</a>
+                 <a href="{{route('counter.index')}}" class="btn btn-success text-white">Back</a>
                 </div>
 		            <div class="col-sm-12">
 			            <form method="post" action="{{route('counter.update',$addcount->id)}}"  enctype="multipart/form-data">

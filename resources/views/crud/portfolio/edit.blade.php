@@ -1,4 +1,4 @@
-@extends('dblayout.main')
+@extends('dblayout.dbheader')
 @section('content')
  <div class="app-wrapper">   
 	<div class="app-content pt-3 p-md-3 p-lg-4">
@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm-2">
                 <!-- <button type="button" class="btn btn-success" style="color:white;"><a href="{{route('employees.index')}}">Back</a></button> -->
-                 <a href="{{route('portfolios.index')}}" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#myModal">Back</a>
+                 <a href="{{route('portfolios.index')}}" class="btn btn-success text-white">Back</a>
                 </div>
 		            <div class="col-sm-12">
 			            <form method="post" action="{{route('portfolios.update',$addport->id)}}"  enctype="multipart/form-data">
@@ -18,7 +18,7 @@
                             <div class="col">
                             <label for="exampleFormControlFile1"><h5>{{__('Choose Image')}}</h5></label>
                             <input type="file" class="form-control-file mb-4" id="image" name="image" accept="image/jpeg,image/png,image/jpg" >
-                            <img src="{{asset('testimages/'.$addport->image)}}" style="height: 70px; width: 100px; margin-top: 3px;">
+                            <img src="{{asset('portimages/'.$addport->image)}}" style="height: 70px; width: 100px; margin-top: 3px;">
                           </div>
                           <div class="col">
                             <label for="text" class="form-label"><h5>{{__('Text')}}</h5></label>
@@ -28,7 +28,13 @@
                           <div class="row g-3">
                             <div class="col">
                             <label for="name" class="form-label"><h5>{{__('Name')}}</h5></label>
-                            <input type="text" class="form-control mb-4" id="name" placeholder="Enter location" name="name" value="{{$addport->name}}">
+                            <!-- <input type="text" class="form-control mb-4" id="name" placeholder="Enter location" name="name" value="{{$addport->name}}"> -->
+                            <select class="form-select selectpicker" aria-label="Default select example" name="name" id="name" >
+                                <option hidden>{{$addport->name}}</option>
+                                <option value="App">App</option>
+                                <option value="Widgets">Widgets</option>
+                                <option value="Web">Web</option>
+                            </select>
                           </div>
                          
                         </div>

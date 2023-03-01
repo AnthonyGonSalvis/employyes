@@ -167,6 +167,11 @@ section {
   }
 }
 
+
+#carouselExampleCaptions{
+  margin-top: 70px;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -174,6 +179,8 @@ section {
   transition: all 0.5s;
   z-index: 997;
   padding: 20px 0;
+  background-color: #fff;
+
 }
 
 .header.header-scrolled {
@@ -232,7 +239,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #013289;
+  color: #E11A1A;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -248,12 +255,12 @@ section {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #4154f1;
+  color: #E43B3B;
 }
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
-  background: #4154f1;
+  background: #E11A1A;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
@@ -2310,7 +2317,7 @@ section {
 }
 
 .footer .footer-top .footer-info .logo img {
-  max-height: 40px;
+  max-height: 70px;
   margin-right: 6px;
 }
 
@@ -2333,20 +2340,21 @@ section {
 .footer .footer-top .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: rgba(1, 41, 112, 0.5);
+  color: rgba(255, 0, 0, 0.8);
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
 }
 
 .footer .footer-top .social-links a:hover {
-  color: #012970;
+ /* color: #012970;*/
+ color: red;
 }
 
 .footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #012970;
+  color: #E11A1A;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
@@ -2364,7 +2372,7 @@ section {
 
 .footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #d0d4fc;
+  color: #E11A1A;
   font-size: 12px;
   line-height: 0;
 }
@@ -2380,7 +2388,8 @@ section {
 }
 
 .footer .footer-top .footer-links ul a {
-  color: #013289;
+  /*color: #013289;*/
+  color: black;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;

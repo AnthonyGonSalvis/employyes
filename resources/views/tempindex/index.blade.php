@@ -1,20 +1,18 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"> 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">  
 
-  <title>FlexStart Bootstrap Template - Index</title>
+
+  <title>Synergy Soft India</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
+  <meta name="images" content="All the images are here for use">
 
   <!-- Favicons -->
-  <link href="{{url('index/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{url('index/assets/img/logo3.png')}}" rel="icon">
   <link href="{{url('index/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -46,18 +44,22 @@
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{{url('index/assets/img/logo.png')}}" alt="">
-        <span>FlexStart</span>
-      </a>
-
+      <!-- <a href="index.html" class="logo d-flex align-items-center"> -->
+        <a href="#hero"><img src="{{url('index/assets/img/logo3.png')}}" alt="" style="height:90px;"></a>
+       
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="{{url('readmore')}}">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#counts">Counter</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>       
+          <li><a class="nav-link scrollto" href="{{url('read')}}">Our Services</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#testimonials">Testimonial</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#clients">Clients</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#recent-blog-posts">Blog</a></li> -->
           <!-- <li><a href="blog.html">Blog</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -77,7 +79,7 @@
             </ul>
           </li> -->
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -86,7 +88,8 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <section id="hero" class="hero">
+  <div id="carouselExampleCaptions" class="carousel slide crl" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -96,7 +99,7 @@
   <div class="carousel-inner">
     @foreach ($slider->take(3) as $key => $value)
     <div class="carousel-item active">
-      <img src="{{asset('sliderimages/'.$value->images)}}" class="d-block w-100" alt="..." style="height: 600px;">
+      <img src="{{asset('sliderimages/'.$value->images)}}" title="Slider Image" class="d-block w-100" alt="#" style="height: 650px;">
       <!-- <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
@@ -142,9 +145,9 @@
           <img src="{{url('index/assets/img/hero-img.png')}}" class="img-fluid" alt="">
         </div>
       </div>
-    </div>
+    </div> -->
 
-  </section> -->
+  </section> 
   <!-- End Hero --> 
 
   <main id="main">
@@ -157,22 +160,17 @@
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <div class="content">
-              <h3>Who We Are</h3>
               <h2>{{$value->heading}}</h2>
-              <p>
-                {{$value->description}}
+              <p class="info">
+                {!! Str::limit($value->description, 300) !!}
               </p>
-              <div class="text-center text-lg-start">
-                <a href="{{$value->button_liink}}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>{{$value->button_text}}</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
+              <!-- <a href="{{url('/readmore')}}" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a> -->
+
             </div>
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{{asset('abimages/'.$value->image)}}" style="height: 450px; width: 100%;"class="img-fluid" alt="">
+            <img src="{{asset('abimages/'.$value->image)}}" title="about image" style="height: 450px; width: 100%;"class="img-fluid" alt="#">
           </div>
 
         </div>
@@ -195,13 +193,14 @@
           @foreach ($val->take(3) as $key => $value)
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="box">
-              <img src="{{asset('valuesimages/'.$value->image)}}" class="img-fluid" alt="">
+              <img src="{{asset('valuesimages/'.$value->image)}}" class="img-fluid" alt="#">
               <h3>{{$value->heading}}</h3>
               <p>{{$value->content}}</p>
             </div>
           </div>
           @endforeach
-         <!--  <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+
+          <!-- <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
             <div class="box">
               <img src="{{url('index/assets/img/values-2.png')}}" class="img-fluid" alt="">
               <h3>Voluptatem voluptatum alias</h3>
@@ -275,7 +274,7 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+  <!--   <section id="features" class="features">
 
       <div class="container" data-aos="fade-up">
 
@@ -336,85 +335,14 @@
               </div>
 
             </div>
-          </div>
+          </div> -->
 
-        </div> <!-- / row -->
+       <!--  </div> --> <!-- / row -->
 
-        <!-- Feature Tabs -->
-        <div class="row feture-tabs" data-aos="fade-up">
-          <div class="col-lg-6">
-            <h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
-
-            <!-- Tabs -->
-            <ul class="nav nav-pills mb-3">
-              <li>
-                <a class="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a>
-              </li>
-              <li>
-                <a class="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a>
-              </li>
-              <li>
-                <a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a>
-              </li>
-            </ul><!-- End Tabs -->
-
-            <!-- Tab Content -->
-            <div class="tab-content">
-
-              <div class="tab-pane fade show active" id="tab1">
-                <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2"></i>
-                  <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-                </div>
-                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2"></i>
-                  <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                </div>
-                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
-              </div><!-- End Tab 1 Content -->
-
-              <div class="tab-pane fade show" id="tab2">
-                <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2"></i>
-                  <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-                </div>
-                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2"></i>
-                  <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                </div>
-                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
-              </div><!-- End Tab 2 Content -->
-
-              <div class="tab-pane fade show" id="tab3">
-                <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2"></i>
-                  <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-                </div>
-                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
-                <div class="d-flex align-items-center mb-2">
-                  <i class="bi bi-check2"></i>
-                  <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                </div>
-                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
-              </div><!-- End Tab 3 Content -->
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-            <img src="{{url('index/assets/img/features-2.png')}}" class="img-fluid" alt="">
-          </div>
-
-        </div><!-- End Feature Tabs -->
+       
 
         <!-- Feature Icons -->
-        <div class="row feature-icons" data-aos="fade-up">
+        <!-- <div class="row feature-icons" data-aos="fade-up">
           <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
 
           <div class="row">
@@ -477,13 +405,13 @@
               </div>
             </div>
 
-          </div>
+          </div> -->
 
-        </div><!-- End Feature Icons -->
+        <!-- </div>End Feature Icons -->
 
-      </div>
+      <!-- </div> -->
 
-    </section><!-- End Features Section -->
+    <!-- </section> --><!-- End Features Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -491,18 +419,19 @@
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Services</h2>
-          <p>Veritatis et dolores facere numquam et praesentium</p>
+          <h1>Services</h1>
+          <!-- <p>Veritatis et dolores facere numquam et praesentium</p> -->
         </header>
 
         <div class="row gy-4">
           @foreach ($service->take(6) as $key => $value)
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-box blue">
-              <i class="{{$value->icon}}"></i>
-              <h3>{{$value->heading}}</h3>
-              <p>{{$value->description}}</p>
-              <a href="#" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a>
+              <!-- <i class="{{$value->icon}}"></i>
+              <h3>{{$value->heading}}</h3> -->
+              <p class="text-truncate">{!! Str::limit($value->description, 200) !!}</p>
+
+              <!-- <a href="{{url('/read')}}" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a> -->
             </div>
           </div>
           @endforeach
@@ -559,7 +488,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+   <!--  <section id="pricing" class="pricing">
 
       <div class="container" data-aos="fade-up">
 
@@ -639,7 +568,7 @@
 
       </div>
 
-    </section><!-- End Pricing Section -->
+    </section> --><!-- End Pricing Section -->
 
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq">
@@ -650,25 +579,25 @@
           <h2>F.A.Q</h2>
           <p>Frequently Asked Questions</p>
         </header>
-
+        @foreach ($faqs as $key => $value)
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <!-- F.A.Q List 1-->
             <div class="accordion accordion-flush" id="faqlist1">
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                    Non consectetur a erat nam at lectus urna duis?
+                    {{$value->question}}
                   </button>
                 </h2>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                   <div class="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                    {{$value->answer}}
                   </div>
                 </div>
               </div>
 
-              <div class="accordion-item">
+              <!-- <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
@@ -679,9 +608,9 @@
                     Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="accordion-item">
+             <!--  <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
@@ -693,14 +622,14 @@
                   </div>
                 </div>
               </div>
-
-            </div>
+ -->
           </div>
-
-          <div class="col-lg-6">
+          </div>
+     
+          <!-- <div class="col-lg-6"> -->
 
             <!-- F.A.Q List 2-->
-            <div class="accordion accordion-flush" id="faqlist2">
+            <!-- <div class="accordion accordion-flush" id="faqlist2">
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -739,13 +668,13 @@
                     Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-            </div>
-          </div>
+            <!-- </div> -->
+          <!-- </div> -->
 
         </div>
-
+         @endforeach
       </div>
 
     </section><!-- End F.A.Q Section -->
@@ -765,14 +694,14 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-card">Widgets</li>
               <li data-filter=".filter-web">Web</li>
             </ul>
           </div>
         </div>
 
         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-           @foreach ($portfo as $key => $value)
+          @foreach ($portfo as $key => $value)
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{strtolower($value->name)}}">
             <div class="portfolio-wrap">
               <img src="{{asset('portimages/'.$value->image)}}" class="img-fluid" alt="">
@@ -780,13 +709,17 @@
                 <h4>{{$value->name}}</h4>
                 <p>{{$value->text}}</p>
                 <div class="portfolio-links">
-                  <a href="{{asset('portimages/'.$value->image)}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                  <a href="{{asset('portimages/'.$value->image)}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="{{$value->name}}"><i class="bi bi-plus"></i></a>
+                  @if($value->name == "Web")
+                  <a href="https://onkarnathkasana.com/" title="More Details" alt="#"><i class="bi bi-link"></i></a>
+                  @else
+                  <a href="{{url('/link')}}" title="More Details" alt="#"><i class="bi bi-link"></i></a>
+                  @endif
                 </div>
               </div>
             </div>
           </div>
-           @endforeach
+          @endforeach
           <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
               <img src="{{url('index/assets/img/portfolio/portfolio-2.jpg')}}" class="img-fluid" alt="">
@@ -927,7 +860,7 @@
                  {{$value->text}}
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{url('index/assets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img" alt="">
+                  <img src="{{url('index/assets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img" alt="#">
                   <h3>{{$value->name}}</h3>
                   <h4>{{$value->designation}}</h4>
                 </div>
@@ -1021,7 +954,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
               <div class="member-img">
-                <img src="{{asset('uploads/'.$value->image)}}" style="height:300px; width: 300px;" class="img-fluid" alt="">
+                <img src="{{asset('uploads/'.$value->image)}}" style="height:300px; width: 300px;" class="img-fluid">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -1114,7 +1047,7 @@
 
           <div class="swiper-wrapper align-items-center">
             @foreach ($clt as $key => $value)
-            <div class="swiper-slide"><img src="{{asset('clientsimages/'.$value->image)}}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{{asset('clientsimages/'.$value->image)}}" class="img-fluid" alt="#"></div>
             <!-- <div class="swiper-slide"><img src="{{url('index/assets/img/clients/client-2.png')}}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{{url('index/assets/img/clients/client-3.png')}}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{{url('index/assets/img/clients/client-4.png')}}" class="img-fluid" alt=""></div>
@@ -1133,7 +1066,7 @@
     </section><!-- End Clients Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="recent-blog-posts" class="recent-blog-posts">
+    <!-- <section id="recent-blog-posts" class="recent-blog-posts">
 
       <div class="container" data-aos="fade-up">
 
@@ -1171,11 +1104,11 @@
             </div>
           </div>
 
-        </div>
+        </div>     
 
       </div>
 
-    </section><!-- End Recent Blog Posts Section -->
+    </section> --><!-- End Recent Blog Posts Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -1233,26 +1166,25 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  <textarea type="text" class="form-control" name="message" rows="6" id="message" placeholder="Message" required></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
-
                   <button type="submit">Send Message</button>
                 </div>
 
@@ -1266,6 +1198,32 @@
       </div>
 
     </section><!-- End Contact Section -->
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <table class="table-bordered">
+            @foreach($mess->take(1) as $key => $value)
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Subject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{{$value->name}}</th>
+                <th>{{$value->email}}</th>
+                <th>{{$value->subject}}</th>
+                <th>{{$value->message}}</th>
+              </tr>
+            </tbody>
+            @endforeach
+          </table>
+        </div>
+      </div>
+    </div> -->
 
   </main><!-- End #main -->
 
@@ -1276,12 +1234,12 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
-            <h4>Our Newsletter</h4>
+            <h4>SynergySoftIndia</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
           </div>
           <div class="col-lg-6">
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="#"><input type="submit" value="Subscribe">
             </form>
           </div>
         </div>
@@ -1293,8 +1251,8 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
-              <img src="{{url('index/assets/img/logo.png')}}" alt="">
-              <span>FlexStart</span>
+             <img src="{{url('index/assets/img/logo3.png')}}" alt="" >
+             <!-- <span>Synergy Soft India</span> -->
             </a>
             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
             <div class="social-links mt-3">
@@ -1345,19 +1303,19 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>SynergySoftIndia</span></strong>. All Rights Reserved
       </div>
-      <div class="credits">
+      <!-- <div class="credits"> -->
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+       <!--  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div> -->
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ <!--  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
 
   <!-- Vendor JS Files -->
   <script src="{{url('index/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>

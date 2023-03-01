@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -33,8 +34,33 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( Request $request)
     {
         $this->middleware('guest')->except('logout');
+
+
     }
+    //  public function login(Request $request)
+    // {   
+    //     $input = $request->all();
+   
+    //     $this->validate($request, [
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+   
+    //     if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+    //     {
+    //         if (auth()->user()->is_admin == 1) {
+    //             return redirect()->route('admin.home');
+    //         }else{
+    //             return redirect()->route('/indexhome');
+    //         }
+    //     }else{
+    //             return back()->withErrors([
+    //                 'error' => 'These credentials is not match our records.',
+    //             ]);
+    //     }
+          
+    // }
 }

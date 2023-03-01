@@ -1,4 +1,4 @@
-@extends('dblayout.main')
+@extends('dblayout.dbheader')
 @section('content')
  <div class="app-wrapper">   
 	<div class="app-content pt-3 p-md-3 p-lg-4">
@@ -24,25 +24,24 @@
                           <div class="row g-3">
                             <div class="col">
                              <label for="description" class="form-label"><h5>{{__('Description')}}</h5></label>
-                             <input type="text" class="form-control mb-4" id="description" placeholder="Enter description" name="description" >
-                             <small class="text-danger">@error('description') {{ $message }} @enderror</small>
+                              <input type="text" name="title" class="form-control mb-5" placeholder="Title">
+                              <textarea class="form-control mt-5" name="description" id="editor"></textarea>
+                              <small class="text-danger">@error('description') {{ $message }} @enderror</small>
                             </div>
                             <div class="col">
-                             <label for="mobile" class="form-label"><h5>{{__('Butten Text')}}</h5></label>
-                             <input type="text" class="form-control mb-4" id="button_text" placeholder="Enter text" name="button_text" >
-                             <small class="text-danger">@error('buttonn_text') {{ $message }} @enderror</small>
+                             <!-- <label for="mobile" class="form-label"><h5>{{__('Butten Text')}}</h5></label>
+                             <input type="text" class="form-control mb-4" id="button_text" placeholder="Enter text" name="button_text">
+                             <small class="text-danger">@error('buttonn_text') {{ $message }} @enderror</small> -->
                             </div>
                           </div>
 
                           <div class="row g-3">
                             <div class="col">
-                             <label for="email" class="form-label"><h5>{{__('Button Link')}}</h5></label>
+                             <!-- <label for="email" class="form-label"><h5>{{__('Button Link')}}</h5></label>
                              <input type="text" class="form-control mb-4" id="button_link" placeholder="Enter url" name="button_link" >
                              <small class="text-danger">@error('button_link') {{ $message }} @enderror</small>
-                            </div>
+                            </div> -->
                           </div>
-
-                     
 
                           <button type="submit" class="btn btn-primary text-white">Submit</button>
                         </form>
@@ -52,4 +51,15 @@
 	    </div>
 	</div>
  </div>		
+ <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+      <script>
+        ClassicEditor
+          .create( document.querySelector( '#editor' ) )
+          .then( editor => {
+                  console.log( editor );
+          } )
+          .catch( error => {
+                   console.error( error );
+          } );
+      </script>
 @endsection

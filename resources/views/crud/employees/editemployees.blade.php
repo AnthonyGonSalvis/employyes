@@ -1,4 +1,4 @@
-@extends('dblayout.main')
+@extends('dblayout.dbheader')
 @section('content')
  <div class="app-wrapper">   
 	<div class="app-content pt-3 p-md-3 p-lg-4">
@@ -8,14 +8,14 @@
                 </div>
                 <div class="col-sm-2">
                 <!-- <button type="button" class="btn btn-success" style="color:white;"><a href="{{route('employees.index')}}">Back</a></button> -->
-                 <a href="{{route('employees.index')}}" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#myModal">Back</a>
+                 <a href="{{route('employees.index')}}" class="btn btn-success text-white">Back</a>
                 </div>
 		            <div class="col-sm-12">
 			            <form method="post" action="{{route('employees.update',$addemp->id)}}"  enctype="multipart/form-data">
 			              @csrf
                     @method('PUT')
-                          <div class="row g-3">
-                            <div class="col">
+                        <div class="row g-3">
+                          <div class="col">
                             <label for="name" class="form-label"><h5>{{__('First Name')}}</h5></label>
                             <input type="text" class="form-control mb-4" id="first_name" placeholder="Enter location" name="first_name" value="{{$addemp->first_name}}">
                            </div>
