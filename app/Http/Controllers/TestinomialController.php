@@ -41,7 +41,7 @@ class TestinomialController extends Controller
         //
         $testi = new Testinomial();
            $validated = $request->validate([
-               'image' =>'required',
+               // 'image' =>'required',
                'text' =>'required|max:300',
                'name' =>'required|max:50',
                'designation' =>'required|max:40',

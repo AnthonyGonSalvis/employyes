@@ -122,7 +122,7 @@ class SliderController extends Controller
         $addslide  = Slider::find($id)->delete();
         if($addslide == true){
             $message = "Deleted successfully.";
-            return redirect()->route('about.index');
+            return redirect()->route('slider.index');
         }
     }
 }

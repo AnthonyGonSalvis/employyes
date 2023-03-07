@@ -58,6 +58,8 @@ Route::Resource('/values',App\Http\Controllers\ValuesController::class);
 Route::Resource('/clients',App\Http\Controllers\ClientsController::class);
 Route::Resource('/contacts',App\Http\Controllers\ContactController::class);
 Route::Resource('/faq',App\Http\Controllers\FaqController::class);
+Route::Resource('/foots',App\Http\Controllers\FooterController::class);
+Route::Resource('/subs',App\Http\Controllers\SubscribeController::class);
 // Route::Resource('/teams',App\Http\Controllers\ContactController::class);
 
 

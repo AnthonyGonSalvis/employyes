@@ -7,40 +7,44 @@
               <div class="row">
                 <div class="card">
                    <div class="card-body d-flex">
-                      <div class="col-md-11">
-                      <h3><a href="{{url('/admin')}}">Home</a>/Slider</h3>
+                     <div class="col-md-11">
+                      <h3><a href="{{url('/admin')}}">Home</a>/About</h3>
                       </div>
                       <div class="col-md-1">
-                      <a href="{{route('slider.create')}}" class="btn btn-success text-white">Add</a></li>
+                      <a href="{{route('subs.create')}}" class="btn btn-success text-white">Add</a>
                       </div>
                    </div>
                 </div>
               </div>
-  	       
               <div class="row mt-3">
                              
                   <table class="table table-bordered bg-white">
                     <thead>
                       <tr class="bg-success text-white text-center">
-                        <th>Image</th>
-                        <th>Status</th>
+                       
+                        <th>Heading</th>
+                        <th>Description</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
-                   @foreach ($slider as $key => $value)
+                   @foreach ($subscribe as $key => $value)
                     <tbody>
                       <tr class="text-center">
-                        <td><img src="{{asset('sliderimages/'.$value->images)}}" style="height: 100px; width: 100px; border-radius: 50%;"></td>
-                          <td>
-                            <form action="{{route('slider.destroy',$value->id) }}" method="POST">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
+                        
+  						          <td>{{ $value->heading }}</td>
+  						          <td>{!! $value->description !!}</td>
+                        <!-- <td>{{ $value->button_text }}</td> -->
+                        <!-- <td>{{ $value->button_link }}</td> -->
+                        <td>
+                            <form action="{{route('subs.destroy',$value->id) }}" method="POST">
+                              {{ method_field('DELETE') }}
+                              {{ csrf_field() }}
                             
-                            <!-- Button to Open the Modal -->
-                             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal">
+                              <!-- Button to Open the Modal -->
+                              <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal">
 
-                               <i class="fa-sharp fa-solid fa-trash fa-2x" aria-hidden="true">
-                                                        </i>
-                             </button>
+                              <i class="fa-sharp fa-solid fa-trash" aria-hidden="true"></i>
+                              </button>
 
                                <!-- The Modal -->
                              <div class="modal" id="myModal">
@@ -66,18 +70,17 @@
                                 </div>
                               </div>
                             </div>
-                           
-                            <a class="btn btn-outline-primary" style="margin-left: 20px;" href="{{ route('slider.edit',$value->id)}}"><i class="fa-sharp fa-solid fa-pen-clip fa-2x" aria-hidden="true"></i></a>      
+
+                            <a class="btn btn-outline-primary" href="{{ route('subs.edit',$value->id)}}"><i class="fa-sharp fa-solid fa-pen-clip" aria-hidden="true"></i></a>      
                             </form>
                         </td>
-                       </tr>
-                     </tbody>
+                      </tr>
+                    </tbody>
                    @endforeach
-              </table>
-             </div>
-                
+                  </table>
+             </div>   
             </div>
-      
-    </div>
- </div>
+
+  </div>
+</div>
 @endsection

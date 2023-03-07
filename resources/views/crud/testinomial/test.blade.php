@@ -31,7 +31,13 @@
                    @foreach ($testi as $key => $value)
                     <tbody>
                       <tr class="text-center">
-                        <td><img src="{{asset('testimages/'.$value->image)}}" style="height: 50px; width: 50px; border-radius: 50%;"></td>
+                        <td>
+                          
+                          <img src="{{asset('testimages/'.$value->image)}}" style="height: 50px; width: 50px; border-radius: 50%;">
+            
+                    
+                        
+                      </td>
   						          <td>{{$value->text}}</td>
   						          <td>{{$value->name}}</td>
                         <td>{{$value->designation}}</td>

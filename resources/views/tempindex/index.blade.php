@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
+
+<!--   DB_DATABASE=u883916576_synergies
+DB_USERNAME=u883916576_synergies
+DB_PASSWORD=Synergies@321 -->
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">  
-
 
   <title>Synergy Soft India</title>
   <meta content="" name="description">
@@ -39,7 +43,13 @@
 </head>
 
 <body>
-
+   <!-- <div class="container">
+     <div class="row">
+       <div class="col-lg-12">
+         <p>synergysoftindia@gmail.com</p>
+       </div>
+     </div>
+   </div> -->
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -51,10 +61,10 @@
         <ul>
           <li><a class="nav-link scrollto" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="{{url('readmore')}}">About Us</a></li>
+          <!-- <li><a class="nav-link scrollto" href="{{url('readmore')}}">About Us</a></li> -->
           <li><a class="nav-link scrollto" href="#counts">Counter</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>       
-          <li><a class="nav-link scrollto" href="{{url('read')}}">Our Services</a></li>
+          <!-- <li><a class="nav-link scrollto" href="{{url('read')}}">Our Services</a></li> -->
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Testimonial</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
@@ -89,42 +99,27 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
-  <div id="carouselExampleCaptions" class="carousel slide crl" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-   
+
+   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    @foreach ($slider->take(3) as $key => $value)
+    @foreach ($slider as $key => $value)
     <div class="carousel-item active">
       <img src="{{asset('sliderimages/'.$value->images)}}" title="Slider Image" class="d-block w-100" alt="#" style="height: 650px;">
-      <!-- <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div> -->
     </div>
-    <!-- <div class="carousel-item">
-      <img src="https://img.indiafilings.com/learn/wp-content/uploads/2015/07/12011038/starting-a-business-in-India-for-foreign-company-1024x683.jpg"  class="d-block w-100" alt="..." style="height: 600px;">
-     
-    </div>
-    <div class="carousel-item">
-      <img src="https://blog.ipleaders.in/wp-content/uploads/2016/06/Company_picture.jpg" class="d-block w-100" alt="..." style="height: 600px;">
-      
-    </div> -->
     @endforeach
   </div>
-  
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+
+  
 <!--   <section id="hero" class="hero d-flex align-items-center">
 
     <div class="container">
@@ -164,8 +159,7 @@
               <p class="info">
                 {!! Str::limit($value->description, 300) !!}
               </p>
-              <!-- <a href="{{url('/readmore')}}" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a> -->
-
+              <a href="{{url('/readmore')}}" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -194,8 +188,10 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="box">
               <img src="{{asset('valuesimages/'.$value->image)}}" class="img-fluid" alt="#">
-              <h3>{{$value->heading}}</h3>
-              <p>{{$value->content}}</p>
+              <div class="mt-3">
+               <h3>{{$value->heading}}</h3>
+               <p>{{$value->content}}</p>
+              </div>
             </div>
           </div>
           @endforeach
@@ -431,7 +427,7 @@
               <h3>{{$value->heading}}</h3> -->
               <p class="text-truncate">{!! Str::limit($value->description, 200) !!}</p>
 
-              <!-- <a href="{{url('/read')}}" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a> -->
+              <a href="{{url('/read')}}" class="read-more"><span>{{$value->button_text}}</span> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           @endforeach
@@ -694,7 +690,7 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Widgets</li>
+              <li data-filter=".filter-widgets">Widgets</li>
               <li data-filter=".filter-web">Web</li>
             </ul>
           </div>
@@ -704,12 +700,12 @@
           @foreach ($portfo as $key => $value)
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{strtolower($value->name)}}">
             <div class="portfolio-wrap">
-              <img src="{{asset('portimages/'.$value->image)}}" class="img-fluid" alt="">
+              <img src="{{asset('portimages/'.$value->image)}}" class="img-fluid" alt="#">
               <div class="portfolio-info">
                 <h4>{{$value->name}}</h4>
                 <p>{{$value->text}}</p>
                 <div class="portfolio-links">
-                  <a href="{{asset('portimages/'.$value->image)}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="{{$value->name}}"><i class="bi bi-plus"></i></a>
+                  <a href="{{asset('portimages/'.$value->image)}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="{{$value->name}}" alt="#"><i class="bi bi-plus"></i></a>
                   @if($value->name == "Web")
                   <a href="https://onkarnathkasana.com/" title="More Details" alt="#"><i class="bi bi-link"></i></a>
                   @else
@@ -720,6 +716,8 @@
             </div>
           </div>
           @endforeach
+
+
           <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
               <img src="{{url('index/assets/img/portfolio/portfolio-2.jpg')}}" class="img-fluid" alt="">
@@ -860,7 +858,7 @@
                  {{$value->text}}
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{url('index/assets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img" alt="#">
+                  <img src="{{asset('testimages/'.$value->image)}}" class="testimonial-img" alt="#">
                   <h3>{{$value->name}}</h3>
                   <h4>{{$value->designation}}</h4>
                 </div>
@@ -1233,15 +1231,18 @@
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
+          @foreach ( $subscribe->take(1) as $key => $value )
           <div class="col-lg-12 text-center">
-            <h4>SynergySoftIndia</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>{{ $value->heading }}</h4>
+            <p>{!! $value->description !!}</p>
           </div>
+          
           <div class="col-lg-6">
             <form action="" method="post">
               <input type="email" name="#"><input type="submit" value="Subscribe">
             </form>
           </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -1254,7 +1255,9 @@
              <img src="{{url('index/assets/img/logo3.png')}}" alt="" >
              <!-- <span>Synergy Soft India</span> -->
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            @foreach($foot->take(1) as $key => $value)
+            <p>{!! $value->paragraph !!}</p>
+            @endforeach
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

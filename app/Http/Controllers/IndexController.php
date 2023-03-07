@@ -15,6 +15,8 @@ use App\Models\clients;
 use App\Models\Contact;
 use App\Models\Message;
 use App\Models\Faq;
+use App\Models\footer;
+use App\Models\subscribe;
 
 
 class IndexController extends Controller
@@ -34,7 +36,9 @@ class IndexController extends Controller
         $contact = Contact::get();
         $faqs = Faq::get();
         $mess = Message::get();
-     	return view('tempindex.index',compact('employees','about','slider','service','testi','portfo','count','val','clt','contact','faqs','mess'));
+        $foot = footer::get();
+        $subscribe = subscribe::get();
+     	return view('tempindex.index',compact('employees','about','slider','service','testi','portfo','count','val','clt','contact','faqs','mess','foot','subscribe'));
      }
 
      public function blog()
@@ -55,6 +59,8 @@ class IndexController extends Controller
              $clt = clients::get();
              $contact = Contact::get();
              $faqs = Faq::get();
+             $foot = footer::get();
+             $subscribe = subscribe::get();
            
             $message = new Message();
             $message->name =  $request->name;
@@ -66,7 +72,7 @@ class IndexController extends Controller
             
             // return "Your message has been sent";
             // return redirect()->back()->with("message","Your message has been sent");
-            return view('tempindex.index',compact('employees','about','slider','service','testi','portfo','count','val','clt','contact','faqs','message'));
+            return view('tempindex.index',compact('employees','about','slider','service','testi','portfo','count','val','clt','contact','faqs','message','foot','subscribe'));
      }
 
     public function service(){

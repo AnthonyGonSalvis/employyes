@@ -14,7 +14,6 @@
                               <input type="file" class="form-control-file mb-4" name="images" accept="image/jpeg,image/png,image/jpg">
                               <small class="text-danger">@error('images') {{ $message }} @enderror</small>
                             </div>
-                           
                           </div>
                           <button type="submit" class="btn btn-primary text-white">Submit</button>
                         </form>

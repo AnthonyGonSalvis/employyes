@@ -48,8 +48,7 @@ class AboutController extends Controller
                // 'button_text' =>'required|max:20',
                // 'button_link' =>'required|max:30',
             ]);
-
-         
+ 
          if($request->hasfile('image'))
             {
                 $file=$request->file('image');
