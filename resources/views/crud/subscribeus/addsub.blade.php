@@ -24,7 +24,7 @@
                             </div>
                           </div>
 
-                          <button type="submit" class="btn btn-primary text-white">Submit</button>
+                          <button type="submit" class="btn text-white" style="background-color: #E43B3B;">Submit</button>
                         </form>
 
                     </div>

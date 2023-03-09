@@ -77,12 +77,14 @@ class IndexController extends Controller
 
     public function service(){
         $services = Services::get();
-        return view('crud.services.readmore',compact('services'));
+        $foot = footer::get();
+        return view('crud.services.readmore',compact('services','foot'));
     }
 
     public function about(){
         $aboutus = About::get();
-        return view('crud.about.readmore',compact('aboutus'));
+        $foot = footer::get();
+        return view('crud.about.readmore',compact('aboutus','foot'));
     }
     public function link(){
         $portfoli = Portfolio::get();

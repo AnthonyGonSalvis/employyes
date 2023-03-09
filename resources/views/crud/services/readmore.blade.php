@@ -131,16 +131,20 @@
              <img src="{{url('index/assets/img/logo3.png')}}" alt="" >
              <!-- <span>Synergy Soft India</span> -->
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+             @foreach($foot->take(1) as $key => $value)
+            <p>{!! $value->paragraph !!}</p>
+            @endforeach
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <!-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> -->
+              <a href="https://www.facebook.com/profile.php?id=100090601004491&mibextid=ZbWKwL" class="facebook"><i class="bi bi-facebook"></i></a>
+              <!-- <a href="#" class="instagram"><i class="bi bi-instagram"></i></a> -->
+              <!-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> -->
             </div>
           </div>
-
-          <div class="col-lg-2 col-6 footer-links">
+          
+          <div class="col-lg-4 footer-links">
+          </div>
+          <!-- <div class="col-lg-2 col-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
@@ -160,16 +164,15 @@
               <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div> -->
 
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Una,<br>
+              Himachal Pradesh<br><br>
+              <strong>Phone:</strong> +91-70181-55283<br>
+              <strong>Email:</strong>info@synergysoftindia.com<br>
             </p>
 
           </div>

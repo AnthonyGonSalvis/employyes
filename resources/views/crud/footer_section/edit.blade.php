@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm-2">
                 <!-- <button type="button" class="btn btn-success" style="color:white;"><a href="{{route('employees.index')}}">Back</a></button> -->
-                 <a href="{{route('foots.index')}}" class="btn btn-success text-white">Back</a>
+                 <a href="{{route('foots.index')}}" class="btn btn-success text-white" style="background-color: #E43B3B;">Back</a>
                 </div>
 		            <div class="col-sm-12">
 			            <form method="post" action="{{route('foots.update',$addfoot->id)}}"  enctype="multipart/form-data">
@@ -27,7 +27,7 @@
                         </div>
                           
                           <!-- Button to Open the Modal -->
-                          <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
+                          <button type="button" class="btn text-white" style="background-color: #E43B3B;" data-bs-toggle="modal" data-bs-target="#myModal">
                             Submit
                           </button>
 
@@ -48,7 +48,7 @@
 
                                   <!-- Modal footer -->
                                   <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
+                                    <button type="submit" class="btn" style="background-color: #E43B3B;" data-bs-dismiss="modal">Ok</button>
                                   </div>
 
                                 </div>

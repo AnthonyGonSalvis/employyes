@@ -41,7 +41,7 @@ class ValuesController extends Controller
         //
         $val = new Values();
            $validated = $request->validate([
-               'image' =>'required',
+               'image' =>'required|dimensions:min_width=500,min_height=500,max_width=1680,max_height=800',
                'heading' =>'required|max:300',
                'content' =>'required|max:50',
             ]);

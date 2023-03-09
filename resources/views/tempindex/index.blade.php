@@ -117,8 +117,6 @@ DB_PASSWORD=Synergies@321 -->
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
-
   
 <!--   <section id="hero" class="hero d-flex align-items-center">
 
@@ -170,7 +168,7 @@ DB_PASSWORD=Synergies@321 -->
         </div>
         @endforeach
       </div>
-
+ 
     </section><!-- End About Section -->
 
     <!-- ======= Values Section ======= -->
@@ -858,7 +856,12 @@ DB_PASSWORD=Synergies@321 -->
                  {{$value->text}}
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{asset('testimages/'.$value->image)}}" class="testimonial-img" alt="#">
+                  @if($value->image)
+                  <img src="{{asset('testimages/'.$value->image)}}" style="height: 50px; width: 50px; border-radius: 50%;">
+                  @else
+                  <img src="{{url('index/assets/img/userlogo/user2.png')}}" style="height: 50px; width: 50px; border-radius: 50%;" >
+                  @endif
+                  <!-- <img src="{{asset('testimages/'.$value->image)}}" class="testimonial-img" alt="#"> -->
                   <h3>{{$value->name}}</h3>
                   <h4>{{$value->designation}}</h4>
                 </div>
@@ -954,10 +957,10 @@ DB_PASSWORD=Synergies@321 -->
               <div class="member-img">
                 <img src="{{asset('uploads/'.$value->image)}}" style="height:300px; width: 300px;" class="img-fluid">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <!-- <a href=""><i class="bi bi-twitter"></i></a> -->
+                  <a href="https://www.facebook.com/profile.php?id=100090601004491&mibextid=ZbWKwL"><i class="bi bi-facebook"></i></a>
+                  <!-- <a href=""><i class="bi bi-instagram"></i></a> -->
+                  <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
                 </div>
               </div>
               <div class="member-info">
@@ -1259,14 +1262,16 @@ DB_PASSWORD=Synergies@321 -->
             <p>{!! $value->paragraph !!}</p>
             @endforeach
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <!-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> -->
+              <a href="https://www.facebook.com/profile.php?id=100090601004491&mibextid=ZbWKwL" class="facebook"><i class="bi bi-facebook"></i></a>
+              <!-- <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>  -->
             </div>
           </div>
-
-          <div class="col-lg-2 col-6 footer-links">
+          <div class="col-lg-4 footer-links">
+            &nbsp
+          </div>
+          <!-- <div class="col-lg-2 col-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
@@ -1286,16 +1291,15 @@ DB_PASSWORD=Synergies@321 -->
               <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div> -->
 
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Una,<br>
+              Himachal Pradesh<br><br>
+              <strong>Phone:</strong> +91-70181-55283<br>
+              <strong>Email:</strong>info@synergysoftindia.com<br>
             </p>
 
           </div>

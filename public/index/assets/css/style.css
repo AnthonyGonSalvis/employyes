@@ -2340,15 +2340,16 @@ section {
 .footer .footer-top .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: rgba(255, 0, 0, 0.8);
+  /*color: rgba(255, 0, 0, 0.8);*/
+  color:rgb(52 92 239 / 80%);
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
 }
 
 .footer .footer-top .social-links a:hover {
- /* color: #012970;*/
- color: red;
+  color:rgb(7 42 172 / 80%);
+ /*color: red;*/
 }
 
 .footer .footer-top h4 {

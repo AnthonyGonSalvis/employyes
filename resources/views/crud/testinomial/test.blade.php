@@ -8,19 +8,19 @@
                 <div class="card">
                    <div class="card-body d-flex">
                       <div class="col-md-11">
-                      <h3><a href="{{url('/admin')}}">Home</a>/Testinomial</h3>
+                      <h3><a href="{{url('/admin')}}" style="color: #E43B3B;">Home</a>/Testinomial</h3>
                       </div>
                       <div class="col-md-1">
-                      <a href="{{route('testinomial.create')}}" class="btn btn-success text-white">Add</a></li>
+                      <a href="{{route('testinomial.create')}}" class="btn text-white" style="background-color: #E43B3B;">Add</a></li>
                       </div>
                    </div>
                 </div>
               </div>
               <div class="row mt-3">
                              
-                  <table class="table table-bordered bg-white">
+                <table class="table table-bordered bg-white">
                     <thead>
-                      <tr class="bg-success text-white text-center">
+                      <tr class="text-white text-center" style="background-color: #E43B3B;">
                         <th>Image</th>
                         <th>Text</th>
                         <th>Name</th>
@@ -32,13 +32,13 @@
                     <tbody>
                       <tr class="text-center">
                         <td>
-                          
+                          @if($value->image)
                           <img src="{{asset('testimages/'.$value->image)}}" style="height: 50px; width: 50px; border-radius: 50%;">
-            
-                    
-                        
-                      </td>
-  						          <td>{{$value->text}}</td>
+                          @else
+                          <img src="{{url('index/assets/img/logo3.png')}}" style="height: 50px; width: 50px; border-radius: 50%;" >
+                          @endif
+                        </td>
+  						          <td style="width: 25em;">{{$value->text}}</td>
   						          <td>{{$value->name}}</td>
                         <td>{{$value->designation}}</td>
                         <td>
@@ -48,9 +48,9 @@
                             
                             <!-- Button to Open the Modal -->
                              <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal">
-
-                               <i class="fa-sharp fa-solid fa-trash" aria-hidden="true">
-                                                        </i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                </svg>                 
                              </button>
 
                                <!-- The Modal -->
@@ -84,11 +84,9 @@
                        </tr>
                      </tbody>
                    @endforeach
-              </table>
-             </div>
-                
+                </table>
+              </div>
             </div>
-      
     </div>
  </div>
 @endsection
