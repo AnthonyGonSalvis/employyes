@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 11:43 AM
+-- Generation Time: Mar 09, 2023 at 08:06 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.0
 
@@ -135,9 +135,9 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `icon`, `heading`, `text`, `created_at`, `updated_at`) VALUES
-(1, 'bi bi-geo-alt', 'Address', 'grsedas', '2022-10-18 05:01:27', '2022-10-18 05:10:13'),
-(2, 'bi bi-telephone', 'Call Us', '6754323435', '2022-10-18 05:21:32', '2022-10-18 05:21:32'),
-(3, 'bi bi-envelope', 'Email Us', 'Info@gmail.com', '2022-10-18 05:24:21', '2022-10-18 05:24:21'),
+(1, 'bi bi-geo-alt', 'Address', 'Una, Himachal Pradesh', '2022-10-18 05:01:27', '2023-03-09 01:08:23'),
+(2, 'bi bi-telephone', 'Call Us', '+91-70181-55283', '2022-10-18 05:21:32', '2023-03-09 01:08:43'),
+(3, 'bi bi-envelope', 'Email Us', 'Info@synergysoftindia.com', '2022-10-18 05:24:21', '2023-03-09 01:08:58'),
 (4, 'bi bi-clock', 'Open Hours', 'Monday-Friday', '2022-10-18 05:25:41', '2022-10-18 05:25:41');
 
 -- --------------------------------------------------------
@@ -238,6 +238,26 @@ INSERT INTO `faqs` (`id`, `question`, `answer`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `footers`
+--
+
+CREATE TABLE `footers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `paragraph` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `footers`
+--
+
+INSERT INTO `footers` (`id`, `paragraph`, `created_at`, `updated_at`) VALUES
+(1, '<p>Hello, Welcome to SynergySoftIndia</p>', '2023-03-03 04:46:29', '2023-03-03 05:01:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `messages`
 --
 
@@ -298,7 +318,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2022_10_18_084121_create_contacts_table', 12),
 (18, '2022_10_18_105706_create_messages_table', 13),
 (19, '2023_02_09_045643_create_teams_table', 14),
-(20, '2023_02_09_062942_create_faqs_table', 15);
+(20, '2023_02_09_062942_create_faqs_table', 15),
+(21, '2023_03_03_084209_create_footers_table', 16),
+(22, '2023_03_03_103150_create_subscribes_table', 17);
 
 -- --------------------------------------------------------
 
@@ -351,7 +373,7 @@ CREATE TABLE `portfolios` (
 --
 
 INSERT INTO `portfolios` (`id`, `image`, `name`, `text`, `created_at`, `updated_at`) VALUES
-(1, '1666002407.jpg', 'App', 'fgvh', '2022-10-17 01:09:52', '2022-10-17 04:56:47'),
+(1, '1678166933.jpg', 'App', 'fgvh', '2022-10-17 01:09:52', '2023-03-06 23:58:53'),
 (2, '1666002421.jpg', 'Web', 'Apps', '2022-10-17 04:39:13', '2022-10-17 04:57:01'),
 (3, '1666002470.jpg', 'Widgets', 'hello', '2022-10-17 04:46:07', '2023-02-17 03:30:58'),
 (4, '1666002242.jpg', 'App', 'image', '2022-10-17 04:53:45', '2022-10-17 04:54:02');
@@ -398,10 +420,30 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `images`, `created_at`, `updated_at`) VALUES
-(2, '1669265863.jpg', '2022-10-15 01:01:07', '2022-11-23 23:27:43'),
-(3, '1669263936.jpg', '2022-10-15 01:01:16', '2022-11-23 22:55:36'),
-(4, '1669263953.png', '2022-10-15 01:04:35', '2022-11-23 22:55:53'),
-(5, '1665816182.jpg', '2022-10-15 01:13:02', '2022-10-15 01:13:02');
+(8, '1677844488.jpeg', '2023-03-03 06:24:48', '2023-03-03 06:24:48'),
+(9, '1678185742.jpeg', '2023-03-06 04:43:39', '2023-03-07 05:12:22'),
+(10, '1678185755.jpeg', '2023-03-06 04:50:12', '2023-03-07 05:12:35');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribes`
+--
+
+CREATE TABLE `subscribes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subscribes`
+--
+
+INSERT INTO `subscribes` (`id`, `heading`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Hello', '<p>Testing here</p>', '2023-03-03 05:32:05', '2023-03-03 05:37:39');
 
 -- --------------------------------------------------------
 
@@ -411,8 +453,8 @@ INSERT INTO `sliders` (`id`, `images`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `testinomials` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `designation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -424,7 +466,9 @@ CREATE TABLE `testinomials` (
 --
 
 INSERT INTO `testinomials` (`id`, `text`, `image`, `name`, `designation`, `created_at`, `updated_at`) VALUES
-(1, 'Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa', '1665983875.jpg', 'Priyam', 'Developer', '2022-10-16 23:47:55', '2022-10-17 00:24:57');
+(1, 'Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa', '1665983875.jpg', 'Priyam', 'Developer', '2022-10-16 23:47:55', '2022-10-17 00:24:57'),
+(2, 'hello', '1678100099.jpg', 'testing', 'Designer', '2023-03-06 05:24:59', '2023-03-06 05:24:59'),
+(3, 'test', NULL, 'test', 'Designer', '2023-03-07 01:11:05', '2023-03-07 01:11:05');
 
 -- --------------------------------------------------------
 
@@ -450,7 +494,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `is_admin`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'User', 'testuser@testing.com', 1, NULL, '$2y$10$UmSUlwPB4RZVRQwu6lJ7Hu5iA3R4AVZN8aWr1daUaV7Z3.I9U6OBG', NULL, '2022-10-06 05:42:32', '2022-10-06 05:42:32'),
-(2, 'Ashwani', 'ashwani0785@gmail.com', 1, NULL, '$2y$10$GCslW4ayCUJHi038maaeG.jfhUKnJQPKJpvv29p4/emsHp8MX4pAq', 'rYAXARvDzpPNmAKvDCOH1mBGQlXdi7pvMjYWgxwdfv3hKabu54mY11B3VF48', '2022-10-06 06:29:15', '2022-10-06 06:29:15'),
+(2, 'Ashwani', 'ashwani0785@gmail.com', 1, NULL, '$2y$10$GCslW4ayCUJHi038maaeG.jfhUKnJQPKJpvv29p4/emsHp8MX4pAq', 'Da7bMKfTurJ2FFMGxkOYKTY4w96UEnYpUpAn4HTAKDtbR4Z16zmIhkBgiMH0', '2022-10-06 06:29:15', '2022-10-06 06:29:15'),
 (3, 'Priyam', 'priyam@gmail.com', 1, NULL, '$2y$10$.3XrlpHMeiZqr5.6xWFRzOnwiHBhapJjp3JYgxBeGfoayMw5iYZ..', NULL, '2023-01-17 05:36:35', '2023-01-17 05:36:35');
 
 -- --------------------------------------------------------
@@ -536,6 +580,12 @@ ALTER TABLE `faqs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `footers`
+--
+ALTER TABLE `footers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -577,6 +627,12 @@ ALTER TABLE `services`
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subscribes`
+--
+ALTER TABLE `subscribes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -657,6 +713,12 @@ ALTER TABLE `faqs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `footers`
+--
+ALTER TABLE `footers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
@@ -666,7 +728,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -690,13 +752,19 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `subscribes`
+--
+ALTER TABLE `subscribes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `testinomials`
 --
 ALTER TABLE `testinomials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
